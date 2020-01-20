@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> My IP GeoLocation Service </h2>
+<p>Your IP address is <strong>{{ ip }}</strong>
+and you are probably in <strong>{{ country }}</strong>. </p>
+<p>This information {{ is_cached|yesno:"was, wasn't" }} cached. </p>
+
+    <p><a href="{% url 'search' %}">Click here</a> to search for an IP Location.</p>
+
+
+
+<iframe width="512"
+height="512"
+frameborder="0"
+style="border:0"
+src="https://api.tomtom.com/map/1/staticimage?key={{ api_key }}&zoom=4&center={{ longitude }}, {{ latitude }}&format=png&layer=basic&style=main&view=IN"
+allowfullscreen>
+</iframe>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- https://api.tomtom.com/map/1/staticimage?key=sEByqPK4dtNxvZ2el9mgrLvDHiACEvyq&zoom=9&center=-0.0737773,51.5204&format=png&layer=labels&style=night&view=IN -->
+<!-- https://developer.tomtom.com/maps-api/maps-api-documentation-raster/static-image -->
